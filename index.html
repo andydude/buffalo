@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <meta name="theme-color" content="#fafafa">
+
+  <script id="alg-ref-template" type="text/x-handlebars-template">
+    <a href="#alg-{{id}}"><samp>{{alg}}</samp></a>
+  </script>
+  
+  <script id="alg-row-template" type="text/x-handlebars-template">
+    <tr>
+      <td>
+        <a id="alg-{{id}}" name="alg-{{id}}"></a>
+        <samp>{{id}}</samp>
+      </td>
+      <td>
+        <samp>{{alg}}</samp>
+      </td>
+      <td>
+        {{notes}}
+      </td>
+    </tr>
+  </script>
+  
+  <script id="alg-table-template" type="text/x-handlebars-template">
+    <table class="table table-bordered table-striped table-hover">
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>alg</th>
+          <th>notes</th>
+        </tr>
+      </thead>
+      {{#if this.length}}
+      <tbody class="alg-table-body">
+        {{#list this}}{{{algrow this}}}{{/list}}
+      </tbody>
+      {{/if}}
+    </table>
+  </script>
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Buffalo Method</h1>
+    </div>
+    <p>Hello world! This is HTML5 Boilerplate.</p>
+    <div id="alg-table-output"></div>
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
