@@ -54,9 +54,10 @@ $(function(){
         alg.algurl = alg.alg
         alg.algurl = alg.algurl.replace(/'/g, "-");
         alg.algurl = alg.algurl.replace(/\s/g, "_");
-        alg.algraw = alg.alg
+        alg.algraw = alg.alg;
         alg.algraw = alg.algraw.replace(/\(([^\)]*)\)3/g, "$1 $1 $1");
         alg.algraw = alg.algraw.replace(/\(([^\)]*)\)2/g, "$1 $1");
+        console.log(alg.algraw);
         try {
             CASES[alg.case.charAt(0)].length;
         } catch (e) {
