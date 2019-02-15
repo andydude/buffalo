@@ -1,9 +1,26 @@
 $(function(){
     
     var ALGORITHMS = [
-        {"id": "D1", "alg": "F R' F' R", "notes": "A > B"},
-        {"id": "D2", "alg": "R' F R F'", "notes": "C < B"},
-        {"id": "", "alg": "", "notes": ""},
+        {"id": "#", "case": "B?", "alg": "(F' U F U')3", "notes": ""},
+        {"id": "#", "case": "B?", "alg": "(U F' U' F)3", "notes": ""},
+        {"id": "#", "case": "D?", "alg": "(R U' R' U)3", "notes": ""},
+        {"id": "#", "case": "D?", "alg": "(U' R U R')3", "notes": ""},
+        {"id": "#", "case": "C?", "alg": "(R' F R F')3", "notes": ""},
+        {"id": "#", "case": "C?", "alg": "(F R' F' R)3", "notes": ""},
+        {"id": "#", "case": "Fc", "alg": "R U' R' U", "notes": ""},
+        {"id": "#", "case": "Ib", "alg": "U' R U R'", "notes": ""},
+        {"id": "#", "case": "Jb", "alg": "R' F R F'", "notes": ""},
+        {"id": "#", "case": "K?", "alg": "(R U' R' U)2", "notes": ""},
+        {"id": "#", "case": "K?", "alg": "(R' F R F')2", "notes": ""},
+        {"id": "#", "case": "K?", "alg": "(U F' U' F)2", "notes": ""},
+        {"id": "#", "case": "Mi", "alg": "F R' F' R", "notes": ""},
+        {"id": "#", "case": "Ni", "alg": "U F' U' F", "notes": ""},
+        {"id": "#", "case": "P?", "alg": "(F R' F' R)2", "notes": ""},
+        {"id": "#", "case": "P?", "alg": "(F' U F U')2", "notes": ""},
+        {"id": "#", "case": "P?", "alg": "(U' R U R')2", "notes": ""},
+        {"id": "#", "case": "Qm", "alg": "F' U F U'", "notes": ""},
+        {"id": "#", "case": "X", "alg": "", "notes": ""},
+        {"id": "#", "case": "X", "alg": "", "notes": ""},
     ];
 
     Handlebars.registerHelper('list', function(items, options) {
@@ -26,6 +43,24 @@ $(function(){
         return alg_row_template(alg);
     });
     var alg_table_template = Handlebars.compile($("#alg-table-template").html());
-    var alg_table_output = alg_table_template(ALGORITHMS);
-    $("#alg-table-output").html(alg_table_output);
+    Handlebars.registerHelper('algtable', function(alg, options) {
+        return alg_table_template(alg);
+    });
+    var cases_template = Handlebars.compile($("#cases-template").html());
+    var CASES = {};
+    window.CASES = CASES;
+    for (var i in ALGORITHMS) {
+        var alg = ALGORITHMS[i];
+        alg.algurl = alg.alg
+        alg.algurl = alg.algurl.replace(/'/g, "-");
+        alg.algurl = alg.algurl.replace(/\s/g, "_");
+        try {
+            CASES[alg.case.charAt(0)].length;
+        } catch (e) {
+            CASES[alg.case.charAt(0)] = [];
+        }
+        CASES[alg.case.charAt(0)].push(alg);
+    }
+    var output = cases_template(CASES);
+    $("#output").html(output);
 })

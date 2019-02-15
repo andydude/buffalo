@@ -7,6 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/css/bootstrap.min.css">
   <style>
+.table thead th:nth-child(1),
+.table thead th:nth-child(2),
+.table thead th:nth-child(4) {
+    width: 7em;
+}
 .jumbotron {
     background-image: url("img/buffalo-large.jpg");
     background-position: 40% 60%;
@@ -22,10 +27,13 @@
   <script id="alg-row-template" type="text/x-handlebars-template">
     <tr>
       <td>
+        <a class="btn btn-sm btn-primary" href="https://alg.cubing.net/?type=alg&alg={{algurl}}">Show</a>
+      </td>
+      <td>
         <a id="alg-{{id}}" name="alg-{{id}}"></a>
         <samp>{{id}}</samp>
       </td>
-      <td>
+      <td >
         <samp>{{alg}}</samp>
       </td>
       <td>
@@ -38,6 +46,7 @@
     <table class="table table-bordered table-striped table-hover">
       <thead>
         <tr>
+          <th>actions</th>
           <th>name</th>
           <th>alg</th>
           <th>notes</th>
@@ -50,6 +59,25 @@
       {{/if}}
     </table>
   </script>
+  
+  <script id="cases-template" type="text/x-handlebars-template">
+    <h2>Corners B/N/Q</h2>
+    <h3>B</h3><hr/>{{{algtable B}}}
+    <h3>N</h3><hr/>{{{algtable N}}}
+    <h3>Q</h3><hr/>{{{algtable Q}}}
+    <h2>Corners C/J/M</h2>
+    <h3>C</h3><hr/>{{{algtable C}}}
+    <h3>J</h3><hr/>{{{algtable J}}}
+    <h3>M</h3><hr/>{{{algtable M}}}
+    <h2>Corners D/F/I</h2>
+    <h3>D</h3><hr/>{{{algtable D}}}
+    <h3>F</h3><hr/>{{{algtable F}}}
+    <h3>I</h3><hr/>{{{algtable I}}}
+    <h2>Corners K/P/V</h2>
+    <h3>K</h3><hr/>{{{algtable K}}}
+    <h3>P</h3><hr/>{{{algtable P}}}
+    <h3>V</h3><hr/><p>Nothing</p>
+  </script>
 
 </head>
 
@@ -58,8 +86,7 @@
     <div class="jumbotron">
       <h1>Buffalo Method</h1>
     </div>
-    <p>Hello world! This is HTML5 Boilerplate.</p>
-    <div id="alg-table-output"></div>
+    <div id="output"></div>
   </div>
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" crossorigin="anonymous"></script>
