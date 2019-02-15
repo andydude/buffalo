@@ -9,7 +9,8 @@
   <style>
 .table thead th:nth-child(1),
 .table thead th:nth-child(2),
-.table thead th:nth-child(4) {
+.table thead th:nth-child(4),
+.table thead th:nth-child(5) {
     width: 7em;
 }
 .jumbotron {
@@ -39,17 +40,21 @@
       <td>
         {{notes}}
       </td>
+      <td>
+        <img style="width:64px;" src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=128&sch=ygrwbo&case={{algraw}}"/>
+      </td>
     </tr>
   </script>
   
   <script id="alg-table-template" type="text/x-handlebars-template">
-    <table class="table table-bordered table-striped table-hover">
+    <table class="table table-bordered table-hover">
       <thead>
         <tr>
           <th>actions</th>
           <th>name</th>
           <th>alg</th>
           <th>notes</th>
+          <th>preimage</th>
         </tr>
       </thead>
       {{#if this.length}}
