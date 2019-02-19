@@ -9,7 +9,7 @@
   <style>
 .table thead th:nth-child(1),
 .table thead th:nth-child(2),
-.table thead th:nth-child(4),
+.table thead th:nth-child(3),
 .table thead th:nth-child(5) {
     width: 7em;
 }
@@ -22,7 +22,7 @@
   <meta name="theme-color" content="#fafafa">
 
   <script id="alg-ref-template" type="text/x-handlebars-template">
-    <a href="#alg-{{id}}"><samp>{{alg}}</samp></a>
+    <a href="#alg-{{algid}}"><samp>{{alg}}</samp></a>
   </script>
   
   <script id="alg-row-template" type="text/x-handlebars-template">
@@ -31,14 +31,14 @@
         <a class="btn btn-sm btn-primary" href="https://alg.cubing.net/?type=alg&alg={{algurl}}">Show</a>
       </td>
       <td>
-        <a id="alg-{{id}}" name="alg-{{id}}"></a>
-        <samp>{{id}}</samp>
-      </td>
-      <td >
-        <samp>{{alg}}</samp>
+        <a id="alg-{{algid}}" name="alg-{{algid}}"></a>
+        <samp>{{algid}}</samp>
       </td>
       <td>
         {{notes}}
+      </td>
+      <td >
+        <samp>{{alg}}</samp>
       </td>
       <td>
         <img style="width:64px;" src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=128&sch=ygrwbo&case={{algraw}}"/>
@@ -52,8 +52,8 @@
         <tr>
           <th>actions</th>
           <th>name</th>
+          <th>alt.names</th>
           <th>alg</th>
-          <th>notes</th>
           <th>preimage</th>
         </tr>
       </thead>
@@ -82,6 +82,7 @@
     <h3>K</h3><hr/>{{{algtable K}}}
     <h3>P</h3><hr/>{{{algtable P}}}
     <h3>V</h3><hr/><p>Nothing</p>
+    <h3>LL</h3><hr/>{{{algtable V}}}
   </script>
 
 </head>
